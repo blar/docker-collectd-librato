@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+set -e
+
+if [ ! -d "/etc/collectd/conf.enabled" ]; then
+    mkdir /etc/collectd/conf.enabled
+fi
+
+find /etc/collectd -type f -name '*.conf' -exec replace-environment-variables {} \;
+
+exec "$@"

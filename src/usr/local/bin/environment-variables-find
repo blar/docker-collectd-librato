@@ -1,0 +1,3 @@
+#!/bin/sh
+
+grep -r -o -E '\$([A-Z_]+)' $1 | cut -d "\$" -f 2 | sort | uniq

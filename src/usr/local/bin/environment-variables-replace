@@ -1,0 +1,7 @@
+#!/bin/sh
+
+filename=$1
+
+for placeholder in $(environment-variables-find $filename); do
+    sed -i -e "s#\$$placeholder#$(eval echo \$$placeholder)#" $filename   
+done
