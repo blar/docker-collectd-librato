@@ -6,6 +6,6 @@ if [ ! -d "/etc/collectd/conf.enabled" ]; then
     mkdir /etc/collectd/conf.enabled
 fi
 
-find /etc/collectd -type f -name '*.conf' -exec replace-environment-variables {} \;
+find /etc/collectd -type f -name '*.conf' -exec environment-variables-replace {} \;
 
 exec "$@"
